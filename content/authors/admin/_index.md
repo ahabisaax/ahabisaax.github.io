@@ -165,5 +165,5 @@ languages:
 Im a first-year PhD student at UCL and a member of the [Fundamentals of Statistical Machine Learning group](https://fsml-ucl.github.io/).
 
 I am supervised by [Dr A. Barp](https://alebarp.github.io/) and my research focuses on interpretability in deep learning models with applications to healthcare. Prior to starting my PhD I had a brief stint in industry
-as a Data scientist at [CourtCorrect](https://www.courtcorrect.com/) where I focused on Retrieval Augmented Generation, LLM finetuning and alignment. 
+as a Data Scientist at [CourtCorrect](https://www.courtcorrect.com/) where I focused on Retrieval Augmented Generation, LLM finetuning and alignment. 
 I completed a Masters (MEng) in Engineering Science at the University of Oxford alongside a Masters in Statistics (MSc) from UCL.

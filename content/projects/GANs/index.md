@@ -48,6 +48,6 @@ We focused on stabilizing the training process to overcome these challenges. By 
 
 This stable approach allowed us to successfully train a GAN to replicate the complex MJ distribution. Our results show that the generated samples are statistically indistinguishable from the true distribution, demonstrating that GANs are a viable and highly efficient alternative to traditional, slow Monte-Carlo sampling in astrophysics.
 
-An extension this work to train a CGAN where the temperature is passed in as a hyperparameter so that we learn the full conditional distribution and can load in the MJ for a given T.
+An extension this work to train a CGAN where the temperature is passed in as a hyperparameter so that we learn the full conditional distribution and can load in the random variate from the MJ for a given T.
 
 <!--more-->
