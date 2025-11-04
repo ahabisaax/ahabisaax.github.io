@@ -33,8 +33,7 @@ This leakage breaks the model's core Markov assumption ($X \to C \to Y$) and cre
 
 While prior work tried to penalize this leakage by directly estimating the mutual information, these estimators (like MINE) are high-variance and produce unstable training signals.
 
-Our project's main contribution was to formalize a new proxy for CTL based on an **"accuracy gap."** We proved (as a consequence of Fano's Inequality) that the presence of information leakage $I(\hat{C}; Y) > I(C; Y)$ directly implies an exploitable gap in optimal accuracy:
-
+Our project's main contribution was to introduce an adversarial classifier which is trained alongside the CBM however we hypothesise that leakage is present whenever the following statement below is true:
 $$
 Acc(Y | \hat{C}) > Acc(Y | C)
 $$
@@ -44,13 +43,15 @@ In simple terms: a "cheating" classifier using the *leaky* concepts ($\hat{C}$) 
 We exploit this gap by creating a **CBM with an Adversarial Critic**, trained as a min-max game:
 
 1.  **The CBM:** Includes its own "honest" task predictor, $f_\phi$.
-2.  **The Adversarial Critic ($h_\psi$):** A separate, powerful classifier that *also* tries to predict $y$ from the same predicted concepts $\hat{c}$.
+2.  **The Adversarial Critic ($h_\psi$):** A separate classifier that *also* tries to predict $y$ from the same predicted concepts $\hat{c}$.
 
 The CBM's total objective becomes:
 
 $$
 \min_{\theta, \phi} \max_{\psi} \left( \mathcal{L}_{task} + \lambda_c \mathcal{L}_{concept} - \lambda_{adv} \mathcal{L}_{critic} \right)
 $$
+
+Our adversarial classifier has the same structure as our main predictor and the  same loss function (BCE for binary classification)
 
 The CBM is trained to minimize its own task and concept losses, but it is simultaneously trained to *maximize* the critic's loss. This adversarial pressure forces the concept encoder $g_\theta$ to "sanitize" its representations $\hat{c}$, removing any spurious leakage until the powerful critic $h_\psi$ can perform no better than the honest predictor $f_\phi$.
 
