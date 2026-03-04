@@ -50,12 +50,13 @@ This competition drives both models to improve. The generator gets better at mak
 
  The discriminator seeks to maximise the following expression:
 $$
-  \frac{1}{n}\sum_{i=1}^n\bigg[log(D(x^{(i)}))+ log(1-D(G(z^{(i)})))\bigg] .
+\frac{1}{n}\sum_{i=1}^n\bigg[log(D(x^{(i)}))+ log(1-D(G(z^{(i)})))\bigg] .
 $$
 The discriminator is trained to maximize the average of the log probability for real data and the log of the inverted probabilities of fake data. The generator seeks to minimise the following expression:
 $$
-    \frac{1}{m}\sum_{i=1}^m log(1-D(G(z^{(i)})))
+\frac{1}{m}\sum_{i=1}^m log(1-D(G(z^{(i)})))
 $$
+
 Minimising the log of the inverse probability predicted by the discriminator for fake data encourages the generator to generate samples that have a low probability of being fake. 
 
 While GANs are powerful, they are difficult to train. It's common for the discriminator to learn too quickly, leaving the generator unable to learn. Given GAN training is often formulated as a min-max game where we are jointly doing gradient descent over some parameters and ascent over others we end up at a saddle point which is often an unstable loss landscape. Another issue is "mode collapse," where the generator finds one "fake" sample that works and produces it over and over, rather than learning the full, diverse distribution.
